@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Softwares com IA · Painel Minimalista</title>
     <style>
-        /* ---------- RESET + BASE (MINIMALISTA, ESCALA DE CINZA) ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -25,23 +24,23 @@
             margin: 0 auto;
         }
 
+        /* TÍTULO CENTRALIZADO */
         .site-title {
             font-size: 3rem;
             font-weight: 550;
             letter-spacing: -0.02em;
             color: #f0f0f0;
             margin-bottom: 0.25rem;
-            border-left: 4px solid #6b6b6b;
-            padding-left: 1.2rem;
+            text-align: center;
         }
 
+        /* SUBTÍTULO CENTRALIZADO */
         .site-sub {
             font-size: 0.85rem;
             color: #7e7e7e;
             margin-bottom: 2.5rem;
             margin-top: 0.5rem;
-            border-left: 4px solid #2c2c2c;
-            padding-left: 1.2rem;
+            text-align: center;
         }
 
         .tools-grid {
@@ -142,21 +141,12 @@
             padding-top: 2rem;
         }
 
-        .help-tip {
-            text-align: center;
-            font-size: 0.65rem;
-            color: #4a4a4a;
-            margin-top: 0.5rem;
-            margin-bottom: -1rem;
-        }
-
         @media (max-width: 600px) {
             body {
                 padding: 1.5rem 1rem;
             }
             .site-title {
                 font-size: 2.3rem;
-                padding-left: 1rem;
             }
             .tools-grid {
                 gap: 1rem;
@@ -179,14 +169,13 @@
     <div class="site-sub">ferramentas · automação · análise</div>
 
     <div class="tools-grid">
-        
-        <!-- 1. B.O INTELIGENTE - imagem Gemini -->
+        <!-- 1. B.O INTELIGENTE -->
         <div class="tool-card">
             <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
                target="_blank" 
                rel="noopener noreferrer"
                class="tool-link">
-                <div class="card-cover" id="boCover">
+                <div class="card-cover">
                     <img src="https://i.postimg.cc/02hvS9wT/Gemini-Generated-Image-kic3fakic3fakic3.png" 
                          alt="B.O Inteligente - software com IA"
                          loading="eager"
@@ -270,7 +259,7 @@
     </div>
 </div>
 
-<!-- Script: apenas duplo clique para alternar enquadramento (sem botão visível) -->
+<!-- Script: duplo clique para alternar enquadramento -->
 <script>
     (function() {
         const boCardCover = document.querySelector('.tool-card:first-child .card-cover');
@@ -279,7 +268,6 @@
         if (boImage && boCardCover) {
             let currentFit = 'cover';
             
-            // Função para alternar entre object-fit cover e contain
             function toggleImageFit() {
                 if (currentFit === 'cover') {
                     boImage.style.objectFit = 'contain';
@@ -290,13 +278,11 @@
                 }
             }
             
-            // Duplo clique na imagem alterna enquadramento
             boImage.addEventListener('dblclick', (e) => {
                 e.stopPropagation();
                 toggleImageFit();
             });
             
-            // Fallback: se a imagem não carregar, mostra texto
             if (boImage.complete && (boImage.naturalWidth === 0 || boImage.naturalHeight === 0)) {
                 if (!boCardCover.querySelector('.no-img')) {
                     boImage.style.display = 'none';
@@ -324,15 +310,6 @@
                 }
             });
         }
-        
-        // Garantir que todas as imagens tenham object-fit cover como padrão
-        const allCoverImages = document.querySelectorAll('.card-cover img');
-        allCoverImages.forEach(img => {
-            if (!img.style.objectFit) {
-                img.style.objectFit = 'cover';
-                img.style.objectPosition = 'center center';
-            }
-        });
     })();
 </script>
 </body>
