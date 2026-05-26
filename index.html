@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Softwares com IA · Painel Minimalista | Imagem adaptável</title>
+    <title>Softwares com IA · Painel Minimalista</title>
     <style>
         /* ---------- RESET + BASE (MINIMALISTA, ESCALA DE CINZA) ---------- */
         * {
@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #0a0a0a;   /* preto queimado */
+            background-color: #0a0a0a;
             font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             line-height: 1.4;
             color: #e6e6e6;
@@ -25,7 +25,6 @@
             margin: 0 auto;
         }
 
-        /* TÍTULO MINIMALISTA */
         .site-title {
             font-size: 3rem;
             font-weight: 550;
@@ -45,7 +44,6 @@
             padding-left: 1.2rem;
         }
 
-        /* GRADE DE CARDS */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -53,7 +51,6 @@
             margin: 2rem 0 3rem;
         }
 
-        /* CARD */
         .tool-card {
             background: #111111;
             border: 1px solid #2b2b2b;
@@ -66,7 +63,6 @@
             cursor: pointer;
         }
 
-        /* ÁREA DA CAPA: quadrado 16/9 estilo capa DVD, com controle de enquadramento */
         .card-cover {
             background-color: #030303;
             aspect-ratio: 16 / 9;
@@ -76,32 +72,18 @@
             justify-content: center;
             border-bottom: 1px solid #262626;
             position: relative;
-            overflow: hidden;  /* garante que qualquer conteúdo extra seja cortado, mantendo enquadramento limpo */
+            overflow: hidden;
         }
 
-        /* ESTILO PRINCIPAL DA IMAGEM: "cover" preenche o espaço mantendo proporção e centralizado */
         .card-cover img {
             width: 100%;
             height: 100%;
             display: block;
-            transition: transform 0.2s ease, opacity 0.2s;
-            /* modalidade cover: preenche todo o container sem distorcer, cortando bordas se necessário.
-               Essa é a melhor opção para um layout de "capa de DVD" profissional */
+            transition: opacity 0.2s;
             object-fit: cover;
             object-position: center center;
         }
 
-        /* classe adicional para casos onde se queira "contain" (mostrar a imagem inteira com possíveis barras).
-           Mas o padrão do card será cover. Para oferecer flexibilidade, o B.O Inteligente pode usar contain 
-           se preferir ver a imagem inteira, porém mantive como cover por ser mais agressivo e moderno.
-           Para atender ao pedido "deixe a imagem se adaptar ou enquadrar", oferecemos ambas opções via classe.
-           O usuário pode alternar. Por padrão a imagem fica perfeitamente enquadrada no 16:9 com cover. */
-        .card-cover.img-contain img {
-            object-fit: contain;
-            background-color: #030303;
-        }
-
-        /* fallback textual caso imagem não carregue */
         .card-cover .no-img {
             color: #7a7a7a;
             font-size: 0.85rem;
@@ -116,7 +98,6 @@
             text-transform: uppercase;
         }
 
-        /* Ícones placeholder */
         .card-cover .icon-placeholder {
             font-size: 2.8rem;
             opacity: 0.75;
@@ -161,6 +142,14 @@
             padding-top: 2rem;
         }
 
+        .help-tip {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #4a4a4a;
+            margin-top: 0.5rem;
+            margin-bottom: -1rem;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 1.5rem 1rem;
@@ -177,7 +166,6 @@
             }
         }
 
-        /* modo DEBUG garantia que imagens não ultrapassem */
         img {
             max-width: 100%;
             vertical-align: middle;
@@ -188,36 +176,30 @@
 
 <div class="container">
     <div class="site-title">Softwares com IA</div>
-    <div class="site-sub">ferramentas · automação · análise · enquadramento adaptativo</div>
+    <div class="site-sub">ferramentas · automação · análise</div>
 
     <div class="tools-grid">
         
-        <!-- 1. B.O INTELIGENTE: imagem com enquadramento automático (object-fit: cover) 
-             Isso faz a imagem se ajustar perfeitamente ao espaço 16:9, cortando bordas de forma inteligente
-             e mantendo o foco no centro. Se preferir que a imagem inteira apareça sem cortes, basta adicionar a classe 
-             "img-contain" no card-cover. Por padrão usamos COVER para um visual mais robusto e "capa de DVD". -->
+        <!-- 1. B.O INTELIGENTE - imagem Gemini -->
         <div class="tool-card">
             <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
                target="_blank" 
                rel="noopener noreferrer"
                class="tool-link">
                 <div class="card-cover" id="boCover">
-                    <!-- A imagem agora se adapta/enquadra usando object-fit: cover (definido no CSS global).
-                         Isso garante que a imagem preencha todo o espaço do quadrado, sem distorção, 
-                         recortando apenas o necessário. O centro da imagem fica em foco. -->
-                    <img src="https://i.postimg.cc/d3BmQt6D/2716610.png" 
+                    <img src="https://i.postimg.cc/02hvS9wT/Gemini-Generated-Image-kic3fakic3fakic3.png" 
                          alt="B.O Inteligente - software com IA"
                          loading="eager"
                          onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.fallback-text')?.remove(); let fall = document.createElement('div'); fall.className='no-img'; fall.innerText = '⚡ B.O INTELIGENTE'; this.parentElement.appendChild(fall);">
                 </div>
                 <div class="card-info">
                     <h3>B.O Inteligente</h3>
-                    <p>registro e gestão de ocorrências · IA assistente · imagem adaptável</p>
+                    <p>registro e gestão de ocorrências · IA assistente</p>
                 </div>
             </a>
         </div>
 
-        <!-- 2. CHATBOT NEURAL – placeholder com ícone -->
+        <!-- 2. CHATBOT NEURAL -->
         <div class="tool-card">
             <a href="#" class="tool-link">
                 <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
@@ -269,7 +251,7 @@
             </a>
         </div>
 
-        <!-- 6. DASHBOARDS IA (extra) -->
+        <!-- 6. DASHBOARDS IA -->
         <div class="tool-card">
             <a href="#" class="tool-link">
                 <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
@@ -284,118 +266,54 @@
     </div>
 
     <div class="footer-note">
-        painel de ferramentas · inteligência aplicada · imagens com enquadramento dinâmico
+        painel de ferramentas · inteligência aplicada
     </div>
 </div>
 
-<!-- Script adicional para garantir adaptabilidade e também oferecer opção de alternar entre "cover" e "contain" de modo interativo? 
-     Mas o foco é garantir que a imagem do B.O Inteligente se adapte perfeitamente ao espaço, sem distorção, e caso queira 
-     ver toda a imagem sem cortes, o usuário pode clicar num pequeno controle? Não é necessário, mas adicionamos um recurso leve:
-     Ao passar o mouse (hover) na capa do B.O Inteligente, ele exibe um tooltip informativo e permite alternar o modo de enquadramento 
-     se o usuário clicar com ctrl? Não, o foco é manter elegância. Porém podemos adicionar uma funcionalidade sutil: 
-     duplo clique na imagem alterna entre "cover" (preencher) e "contain" (mostrar toda a imagem), dando flexibilidade de adaptação.
-     Isso atende perfeitamente "deixe a imagem se adaptar ou enquadrar" – assim o próprio visitante escolhe o melhor enquadramento. 
-     A implementação é clean e não polui a interface. -->
+<!-- Script: apenas duplo clique para alternar enquadramento (sem botão visível) -->
 <script>
     (function() {
-        // Seleciona a imagem do B.O Inteligente
         const boCardCover = document.querySelector('.tool-card:first-child .card-cover');
         const boImage = boCardCover ? boCardCover.querySelector('img') : null;
         
         if (boImage && boCardCover) {
-            // Flag para controle do modo atual: "cover" é o padrão. 
             let currentFit = 'cover';
-            
-            // Criar um indicador visual minimalista (pequeno ícone de ajuste) para melhor experiência
-            const fitToggleHint = document.createElement('div');
-            fitToggleHint.innerText = '🖼️';
-            fitToggleHint.style.position = 'absolute';
-            fitToggleHint.style.bottom = '8px';
-            fitToggleHint.style.right = '8px';
-            fitToggleHint.style.backgroundColor = 'rgba(0,0,0,0.65)';
-            fitToggleHint.style.color = '#e0e0e0';
-            fitToggleHint.style.fontSize = '0.7rem';
-            fitToggleHint.style.padding = '4px 8px';
-            fitToggleHint.style.borderRadius = '20px';
-            fitToggleHint.style.backdropFilter = 'blur(4px)';
-            fitToggleHint.style.fontWeight = '400';
-            fitToggleHint.style.cursor = 'pointer';
-            fitToggleHint.style.zIndex = '5';
-            fitToggleHint.style.fontFamily = 'monospace';
-            fitToggleHint.style.letterSpacing = '0.3px';
-            fitToggleHint.title = 'Clique duplo na imagem para alternar enquadramento: cover (preencher) / contain (mostrar inteira)';
-            fitToggleHint.innerHTML = '🎚️ enquadrar';
-            fitToggleHint.style.opacity = '0.7';
-            fitToggleHint.style.transition = 'opacity 0.2s';
-            
-            // Adiciona apenas se não existir outro elemento igual
-            if (!boCardCover.querySelector('.fit-toggle-custom')) {
-                fitToggleHint.classList.add('fit-toggle-custom');
-                boCardCover.style.position = 'relative';
-                boCardCover.appendChild(fitToggleHint);
-                
-                // hover no hint
-                fitToggleHint.addEventListener('mouseenter', () => { fitToggleHint.style.opacity = '1'; });
-                fitToggleHint.addEventListener('mouseleave', () => { fitToggleHint.style.opacity = '0.7'; });
-            }
             
             // Função para alternar entre object-fit cover e contain
             function toggleImageFit() {
                 if (currentFit === 'cover') {
                     boImage.style.objectFit = 'contain';
                     currentFit = 'contain';
-                    // feedback visual sutil: altera o texto do hint
-                    fitToggleHint.innerHTML = '🎚️ contido';
-                    fitToggleHint.title = 'Modo "contain": imagem inteira visível (bordas laterais possíveis). Clique duplo para cover.';
                 } else {
                     boImage.style.objectFit = 'cover';
                     currentFit = 'cover';
-                    fitToggleHint.innerHTML = '🎚️ enquadrar';
-                    fitToggleHint.title = 'Modo "cover": imagem preenche todo espaço (corte nas bordas). Clique duplo para contain.';
                 }
             }
             
-            // Adicionar evento de duplo clique na imagem para alternar enquadramento (máxima flexibilidade)
+            // Duplo clique na imagem alterna enquadramento
             boImage.addEventListener('dblclick', (e) => {
                 e.stopPropagation();
                 toggleImageFit();
             });
             
-            // Clique no hint também alterna
-            fitToggleHint.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleImageFit();
-            });
-            
-            // Fallback extra: caso a imagem demore ou ocorra erro de carregamento, mantém o fallback textual.
+            // Fallback: se a imagem não carregar, mostra texto
             if (boImage.complete && (boImage.naturalWidth === 0 || boImage.naturalHeight === 0)) {
-                // se a imagem estiver quebrada mesmo com src válido, mostra fallback
                 if (!boCardCover.querySelector('.no-img')) {
                     boImage.style.display = 'none';
                     const fallbackDiv = document.createElement('div');
                     fallbackDiv.className = 'no-img';
                     fallbackDiv.innerText = '⚡ B.O INTELIGENTE';
                     boCardCover.appendChild(fallbackDiv);
-                    // esconder também o hint se a imagem não existir? não necessário.
                 }
-            } else {
-                // garantir que object-fit padrão seja cover (já no CSS)
-                boImage.style.objectFit = 'cover';
-                // centralização extra
-                boImage.style.objectPosition = 'center center';
             }
             
-            // caso a imagem carregue com sucesso mas queremos assegurar que o hint não conflite
             boImage.addEventListener('load', () => {
-                if (boCardCover.querySelector('.no-img')) {
-                    const noImgDiv = boCardCover.querySelector('.no-img');
-                    if(noImgDiv) noImgDiv.remove();
-                    boImage.style.display = 'block';
-                }
-                boImage.style.objectFit = currentFit; // mantém a preferência
+                const noImgDiv = boCardCover.querySelector('.no-img');
+                if(noImgDiv) noImgDiv.remove();
+                boImage.style.display = 'block';
+                boImage.style.objectFit = currentFit;
             });
             
-            // Tratamento de erro duplo (reforço)
             boImage.addEventListener('error', () => {
                 if (!boCardCover.querySelector('.no-img')) {
                     boImage.style.display = 'none';
@@ -403,15 +321,11 @@
                     errDiv.className = 'no-img';
                     errDiv.innerText = '🖼️ B.O INTELIGENTE';
                     boCardCover.appendChild(errDiv);
-                    // também escondemos o toggle caso a imagem não exista - mas mantemos
-                    if(fitToggleHint) fitToggleHint.style.display = 'none';
                 }
             });
         }
         
-        // função complementar para garantir que quaisquer outras imagens futuras também se adaptem ao container
-        // Mas já está no CSS global .card-cover img com object-fit: cover. De qualquer forma, se algum card vier
-        // a conter imagem, ela será ajustada. Porém garantimos no B.O o controle duplo.
+        // Garantir que todas as imagens tenham object-fit cover como padrão
         const allCoverImages = document.querySelectorAll('.card-cover img');
         allCoverImages.forEach(img => {
             if (!img.style.objectFit) {
@@ -419,37 +333,6 @@
                 img.style.objectPosition = 'center center';
             }
         });
-        
-        // Pequeno ajuste responsivo para telas muito pequenas não quebrarem o layout
-        const resizeObserver = new ResizeObserver(() => {
-            const covers = document.querySelectorAll('.card-cover');
-            covers.forEach(cover => {
-                const imgEl = cover.querySelector('img');
-                if (imgEl && window.innerWidth < 480) {
-                    // garantir que object-fit persista
-                    if (imgEl.style.objectFit === 'contain' || imgEl.style.objectFit === 'cover') {
-                        // mantém escolha do usuário caso tenha alterado pelo duplo clique
-                    } else {
-                        imgEl.style.objectFit = 'cover';
-                    }
-                }
-            });
-        });
-        const mainGrid = document.querySelector('.tools-grid');
-        if (mainGrid) resizeObserver.observe(mainGrid);
-        
-        // Texto adicional de ajuda minimalista (pequeno tooltip global não intrusivo)
-        const helpNote = document.createElement('div');
-        helpNote.style.textAlign = 'center';
-        helpNote.style.fontSize = '0.65rem';
-        helpNote.style.color = '#4a4a4a';
-        helpNote.style.marginTop = '0.5rem';
-        helpNote.style.marginBottom = '-1rem';
-        helpNote.innerText = '💡 Dica: dê duplo clique na imagem do "B.O Inteligente" para alternar entre preenchimento total (cover) ou exibição integral (contain).';
-        const footer = document.querySelector('.footer-note');
-        if (footer) {
-            footer.parentNode.insertBefore(helpNote, footer);
-        }
     })();
 </script>
 </body>
