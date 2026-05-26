@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softwares IA - Soluções Inteligentes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #2d3748;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #f7fafc;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .bo-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .bo-button {
+            background: white;
+            color: #f5576c;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .bo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .bo-description {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Softwares IA</h1>
+        <p>Soluções Inteligentes para o seu Negócio</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#bo">B.O Inteligente</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Transforme seu Negócio com Inteligência Artificial</h2>
+        <p>Softwares personalizados e soluções automatizadas para otimizar seus processos</p>
+        <a href="#contato" class="cta-button">Solicite um Orçamento</a>
+    </section>
+
+    <section class="bo-section" id="bo">
+        <h2>🚨 Seu Assistente de Boletim de Ocorrência</h2>
+        <p class="bo-description">Registre e gerencie ocorrências de forma inteligente e automatizada</p>
+        <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
+           class="bo-button" 
+           target="_blank">
+            📋 B.O Inteligente
+        </a>
+        <p style="margin-top: 1rem;">Clique para acessar o sistema</p>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="service-card">
+            <h3>🤖 Chatbots Inteligentes</h3>
+            <p>Atendimento automatizado 24/7 com IA conversacional</p>
+        </div>
+        
+        <div class="service-card">
+            <h3>📊 Análise de Dados</h3>
+            <p>Insights valiosos com machine learning</p>
+        </div>
+        
+        <div class="service-card">
+            <h3>🔧 Automação</h3>
+            <p>Automatize processos repetitivos e aumente a produtividade</p>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <p>&copy; 2024 Softwares IA. Todos os direitos reservados.</p>
+        <p>contato@softwares-ia.com.br</p>
+    </footer>
+</body>
+</html>
