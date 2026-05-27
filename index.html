@@ -1,316 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Softwares com IA · Painel Minimalista</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Softwares - IA | Hub de Ferramentas</title>
+  <!-- Fontes modernas + ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: #0a0a0a;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            line-height: 1.4;
-            color: #e6e6e6;
-            padding: 2rem 1.5rem;
-        }
+    body {
+      min-height: 100vh;
+      font-family: 'Rajdhani', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+      /* Fundo gradiente oscilante com tons neutros e escuros */
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e, #0f172a, #1e1e2f);
+      background-size: 400% 400%;
+      animation: gradientShift 14s ease-in-out infinite;
+      position: relative;
+    }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
+    /* Textura sutil no fundo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(200, 200, 220, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px, 80px 80px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* TÍTULO CENTRALIZADO */
-        .site-title {
-            font-size: 3rem;
-            font-weight: 550;
-            letter-spacing: -0.02em;
-            color: #f0f0f0;
-            margin-bottom: 0.25rem;
-            text-align: center;
-        }
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 30%;
+      }
+      25% {
+        background-position: 70% 0%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      75% {
+        background-position: 40% 100%;
+      }
+      100% {
+        background-position: 0% 30%;
+      }
+    }
 
-        /* SUBTÍTULO CENTRALIZADO */
-        .site-sub {
-            font-size: 0.85rem;
-            color: #7e7e7e;
-            margin-bottom: 2.5rem;
-            margin-top: 0.5rem;
-            text-align: center;
-        }
+    /* Container principal */
+    .hub-container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      gap: 3rem;
+    }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.8rem;
-            margin: 2rem 0 3rem;
-        }
+    /* Título centralizado - "Softwares - IA" com estilo neutro e elegante */
+    .gamer-title {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.2rem, 9vw, 5.5rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #e0e0e0 0%, #c0c0d0 30%, #a0a0b0 60%, #d0d0d8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 
+        0 0 30px rgba(180, 180, 200, 0.3),
+        0 0 60px rgba(140, 140, 180, 0.2);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+      margin: 0;
+      line-height: 1.1;
+      word-break: break-word;
+      padding: 0 0.5rem;
+    }
 
-        .tool-card {
-            background: #111111;
-            border: 1px solid #2b2b2b;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            cursor: pointer;
-        }
+    /* Linha decorativa abaixo do título */
+    .title-underline {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #8a8a9a, #a0a0b8, #8a8a9a, transparent);
+      border-radius: 4px;
+      margin-top: -0.5rem;
+      box-shadow: 0 0 20px rgba(160, 160, 190, 0.3);
+    }
 
-        .card-cover {
-            background-color: #030303;
-            aspect-ratio: 16 / 9;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #262626;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Grid de ferramentas */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
 
-        .card-cover img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            transition: opacity 0.2s;
-            object-fit: cover;
-            object-position: center center;
-        }
+    .tool-card {
+      background: rgba(30, 30, 45, 0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 2rem;
+      padding: 1.8rem 1.4rem 2rem;
+      width: 270px;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1.5px solid rgba(180, 180, 200, 0.25);
+      box-shadow: 
+        0 20px 35px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(140, 140, 170, 0.15);
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      transform: translateY(0);
+    }
 
-        .card-cover .no-img {
-            color: #7a7a7a;
-            font-size: 0.85rem;
-            background: #0a0a0a;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+    .tool-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(200, 200, 220, 0.5);
+      box-shadow: 
+        0 30px 45px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(160, 160, 190, 0.3);
+      background: rgba(40, 40, 60, 0.65);
+    }
 
-        .card-cover .icon-placeholder {
-            font-size: 2.8rem;
-            opacity: 0.75;
-        }
+    .tool-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
 
-        .card-info {
-            padding: 1.2rem 1rem 1.2rem 1rem;
-        }
+    .card-cover {
+      width: 100%;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      margin-bottom: 1.3rem;
+      border: 2px solid rgba(200, 200, 210, 0.2);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+      background: #1a1a2a;
+    }
 
-        .card-info h3 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: -0.2px;
-            margin-bottom: 0.3rem;
-            color: #ececec;
-        }
+    .tool-card:hover .card-cover {
+      border-color: rgba(210, 210, 225, 0.5);
+      box-shadow: 0 0 35px rgba(180, 180, 200, 0.25);
+    }
 
-        .card-info p {
-            font-size: 0.75rem;
-            color: #8f8f8f;
-            line-height: 1.3;
-        }
+    .card-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 0.4s;
+      filter: brightness(0.95);
+    }
 
-        .tool-card:hover {
-            background: #181818;
-            border-color: #4b4b4b;
-            transform: translateY(-3px);
-        }
+    .tool-card:hover .card-cover img {
+      transform: scale(1.05);
+      filter: brightness(1.05);
+    }
 
-        .tool-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+    /* Nome da ferramenta dentro do card */
+    .card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      background: linear-gradient(to right, #d0d0d8, #b0b0c0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 15px rgba(180, 180, 200, 0.25);
+      margin-top: 0.2rem;
+    }
 
-        .footer-note {
-            margin-top: 3.5rem;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #3d3d3d;
-            border-top: 1px solid #1f1f1f;
-            padding-top: 2rem;
-        }
+    /* Rodapé discreto */
+    .footer-note {
+      margin-top: 1.5rem;
+      color: rgba(200, 200, 210, 0.4);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      text-align: center;
+    }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 1.5rem 1rem;
-            }
-            .site-title {
-                font-size: 2.3rem;
-            }
-            .tools-grid {
-                gap: 1rem;
-            }
-            .card-info h3 {
-                font-size: 1.1rem;
-            }
-        }
-
-        img {
-            max-width: 100%;
-            vertical-align: middle;
-        }
-    </style>
+    /* Responsivo */
+    @media (max-width: 650px) {
+      body {
+        padding: 2rem 1rem;
+      }
+      .tools-grid {
+        gap: 1.8rem;
+      }
+      .tool-card {
+        width: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="hub-container">
+    <!-- TÍTULO CENTRALIZADO COM ESTILO NEUTRO E PROFISSIONAL -->
+    <h1 class="gamer-title">Softwares - IA</h1>
+    <div class="title-underline"></div>
 
-<div class="container">
-    <div class="site-title">Softwares com IA</div>
-    <div class="site-sub">ferramentas · automação · análise</div>
-
+    <!-- GRID DE FERRAMENTAS -->
     <div class="tools-grid">
-        <!-- 1. B.O INTELIGENTE -->
-        <div class="tool-card">
-            <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="tool-link">
-                <div class="card-cover">
-                    <img src="https://i.postimg.cc/02hvS9wT/Gemini-Generated-Image-kic3fakic3fakic3.png" 
-                         alt="B.O Inteligente - software com IA"
-                         loading="eager"
-                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.fallback-text')?.remove(); let fall = document.createElement('div'); fall.className='no-img'; fall.innerText = '⚡ B.O INTELIGENTE'; this.parentElement.appendChild(fall);">
-                </div>
-                <div class="card-info">
-                    <h3>B.O Inteligente</h3>
-                    <p>registro e gestão de ocorrências · IA assistente</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- 2. CHATBOT NEURAL -->
-        <div class="tool-card">
-            <a href="#" class="tool-link">
-                <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
-                    <span class="icon-placeholder">💬</span>
-                </div>
-                <div class="card-info">
-                    <h3>Chatbot Neural</h3>
-                    <p>atendimento autônomo · NLP em tempo real</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- 3. ANÁLISE PREDITIVA -->
-        <div class="tool-card">
-            <a href="#" class="tool-link">
-                <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
-                    <span class="icon-placeholder">📈</span>
-                </div>
-                <div class="card-info">
-                    <h3>Análise Preditiva</h3>
-                    <p>machine learning · forecast e padrões</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- 4. AUTOMAÇÃO DE FLUXOS -->
-        <div class="tool-card">
-            <a href="#" class="tool-link">
-                <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
-                    <span class="icon-placeholder">⚙️</span>
-                </div>
-                <div class="card-info">
-                    <h3>Automação IA</h3>
-                    <p>workflows inteligentes · redução de tarefas</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- 5. PROCESSADOR DE DOCUMENTOS -->
-        <div class="tool-card">
-            <a href="#" class="tool-link">
-                <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
-                    <span class="icon-placeholder">📄</span>
-                </div>
-                <div class="card-info">
-                    <h3>OCR + Documentos</h3>
-                    <p>extração inteligente de dados</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- 6. DASHBOARDS IA -->
-        <div class="tool-card">
-            <a href="#" class="tool-link">
-                <div class="card-cover" style="background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
-                    <span class="icon-placeholder">📊</span>
-                </div>
-                <div class="card-info">
-                    <h3>Dashboards IA</h3>
-                    <p>kpi's preditivos · visualização técnica</p>
-                </div>
-            </a>
-        </div>
+      <!-- 1. B.O INTELIGENTE -->
+      <div class="tool-card">
+        <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="tool-link">
+          <div class="card-cover">
+            <img src="https://i.postimg.cc/02hvS9wT/Gemini-Generated-Image-kic3fakic3fakic3.png" alt="B.O Inteligente">
+          </div>
+          <span class="card-title">B.O INTELIGENTE</span>
+        </a>
+      </div>
+      <!-- Você pode adicionar mais cards seguindo a mesma estrutura -->
     </div>
 
     <div class="footer-note">
-        painel de ferramentas · inteligência aplicada
+      <i class="fas fa-microchip" style="margin-right: 0.3rem;"></i> FERRAMENTAS INTELIGENTES
     </div>
-</div>
-
-<!-- Script: duplo clique para alternar enquadramento -->
-<script>
-    (function() {
-        const boCardCover = document.querySelector('.tool-card:first-child .card-cover');
-        const boImage = boCardCover ? boCardCover.querySelector('img') : null;
-        
-        if (boImage && boCardCover) {
-            let currentFit = 'cover';
-            
-            function toggleImageFit() {
-                if (currentFit === 'cover') {
-                    boImage.style.objectFit = 'contain';
-                    currentFit = 'contain';
-                } else {
-                    boImage.style.objectFit = 'cover';
-                    currentFit = 'cover';
-                }
-            }
-            
-            boImage.addEventListener('dblclick', (e) => {
-                e.stopPropagation();
-                toggleImageFit();
-            });
-            
-            if (boImage.complete && (boImage.naturalWidth === 0 || boImage.naturalHeight === 0)) {
-                if (!boCardCover.querySelector('.no-img')) {
-                    boImage.style.display = 'none';
-                    const fallbackDiv = document.createElement('div');
-                    fallbackDiv.className = 'no-img';
-                    fallbackDiv.innerText = '⚡ B.O INTELIGENTE';
-                    boCardCover.appendChild(fallbackDiv);
-                }
-            }
-            
-            boImage.addEventListener('load', () => {
-                const noImgDiv = boCardCover.querySelector('.no-img');
-                if(noImgDiv) noImgDiv.remove();
-                boImage.style.display = 'block';
-                boImage.style.objectFit = currentFit;
-            });
-            
-            boImage.addEventListener('error', () => {
-                if (!boCardCover.querySelector('.no-img')) {
-                    boImage.style.display = 'none';
-                    const errDiv = document.createElement('div');
-                    errDiv.className = 'no-img';
-                    errDiv.innerText = '🖼️ B.O INTELIGENTE';
-                    boCardCover.appendChild(errDiv);
-                }
-            });
-        }
-    })();
-</script>
+  </div>
 </body>
 </html>
