@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Softwares - IA | Hub de Ferramentas</title>
-  <!-- Fontes modernas + ícones -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -24,14 +23,12 @@
       align-items: center;
       justify-content: center;
       padding: 2.5rem 1.5rem;
-      /* Fundo gradiente oscilante com tons neutros e escuros */
       background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e, #0f172a, #1e1e2f);
       background-size: 400% 400%;
       animation: gradientShift 14s ease-in-out infinite;
       position: relative;
     }
 
-    /* Textura sutil no fundo */
     body::before {
       content: "";
       position: fixed;
@@ -48,24 +45,13 @@
     }
 
     @keyframes gradientShift {
-      0% {
-        background-position: 0% 30%;
-      }
-      25% {
-        background-position: 70% 0%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      75% {
-        background-position: 40% 100%;
-      }
-      100% {
-        background-position: 0% 30%;
-      }
+      0% { background-position: 0% 30%; }
+      25% { background-position: 70% 0%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 40% 100%; }
+      100% { background-position: 0% 30%; }
     }
 
-    /* Container principal */
     .hub-container {
       width: 100%;
       max-width: 1300px;
@@ -79,7 +65,6 @@
       gap: 3rem;
     }
 
-    /* Título centralizado - "Softwares - IA" com estilo neutro e elegante */
     .gamer-title {
       text-align: center;
       font-family: 'Orbitron', sans-serif;
@@ -91,9 +76,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 
-        0 0 30px rgba(180, 180, 200, 0.3),
-        0 0 60px rgba(140, 140, 180, 0.2);
+      text-shadow: 0 0 30px rgba(180, 180, 200, 0.3), 0 0 60px rgba(140, 140, 180, 0.2);
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
       margin: 0;
       line-height: 1.1;
@@ -101,7 +84,6 @@
       padding: 0 0.5rem;
     }
 
-    /* Linha decorativa abaixo do título */
     .title-underline {
       width: 100px;
       height: 3px;
@@ -111,7 +93,6 @@
       box-shadow: 0 0 20px rgba(160, 160, 190, 0.3);
     }
 
-    /* Grid de ferramentas */
     .tools-grid {
       display: flex;
       flex-wrap: wrap;
@@ -135,9 +116,7 @@
       align-items: center;
       text-align: center;
       border: 1.5px solid rgba(180, 180, 200, 0.25);
-      box-shadow: 
-        0 20px 35px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(140, 140, 170, 0.15);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(140, 140, 170, 0.15);
       transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
       transform: translateY(0);
     }
@@ -145,9 +124,7 @@
     .tool-card:hover {
       transform: translateY(-10px);
       border-color: rgba(200, 200, 220, 0.5);
-      box-shadow: 
-        0 30px 45px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(160, 160, 190, 0.3);
+      box-shadow: 0 30px 45px rgba(0, 0, 0, 0.6), 0 0 40px rgba(160, 160, 190, 0.3);
       background: rgba(40, 40, 60, 0.65);
     }
 
@@ -191,7 +168,6 @@
       filter: brightness(1.05);
     }
 
-    /* Nome da ferramenta dentro do card */
     .card-title {
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
@@ -205,7 +181,6 @@
       margin-top: 0.2rem;
     }
 
-    /* Rodapé discreto */
     .footer-note {
       margin-top: 1.5rem;
       color: rgba(200, 200, 210, 0.4);
@@ -216,34 +191,23 @@
       text-align: center;
     }
 
-    /* Responsivo */
     @media (max-width: 650px) {
-      body {
-        padding: 2rem 1rem;
-      }
-      .tools-grid {
-        gap: 1.8rem;
-      }
-      .tool-card {
-        width: 240px;
-      }
+      body { padding: 2rem 1rem; }
+      .tools-grid { gap: 1.8rem; }
+      .tool-card { width: 240px; }
     }
   </style>
 </head>
 <body>
   <div class="hub-container">
-    <!-- TÍTULO CENTRALIZADO COM ESTILO NEUTRO E PROFISSIONAL -->
     <h1 class="gamer-title">Softwares - IA</h1>
     <div class="title-underline"></div>
 
-    <!-- GRID DE FERRAMENTAS -->
     <div class="tools-grid">
       <!-- 1. B.O INTELIGENTE -->
       <div class="tool-card">
         <a href="https://script.google.com/macros/s/AKfycbwQnUliCJ1AhvCBEVLpfvkQlH0wJPfhoEDAoEYJHnLCpWEeGlYzUaqw-HsZZBQ8pbx2/exec" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="tool-link">
+           target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="card-cover">
             <img src="https://i.postimg.cc/90vst2cF/Chat-GPT-Image-27-de-mai-de-2026-07-03-36.png" alt="B.O Inteligente">
           </div>
@@ -254,22 +218,18 @@
       <!-- 2. Mapa Interativo -->
       <div class="tool-card">
         <a href="https://script.google.com/macros/s/AKfycbyjAjh_9JadBElNlfBSCD6AMPm7M0or50x7nstFI0tJWFeaWWH71y8HGc_nMdKmo8E/exec" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="tool-link">
+           target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="card-cover">
             <img src="https://i.postimg.cc/mDypSvzY/mapaiterativo1.png" alt="Mapa Interativo">
           </div>
-          <span class="Mapa Interativo</span>
+          <span class="card-title">Mapa Interativo</span>
         </a>
       </div>
 
-      <!-- 3. INVESTIGA BOX (NOVO) -->
+      <!-- 3. INVESTIGA BOX -->
       <div class="tool-card">
         <a href="https://script.google.com/macros/s/AKfycbxWtUQbc7vkyo1-6XX60reA7E1NEz84L12wRp0-_OEQRFQ5YngAZrbsoywZsyONX4ld6g/exec" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="tool-link">
+           target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="card-cover">
             <img src="https://i.postimg.cc/Xvh2M7MY/investiga-box.png" alt="Investiga Box">
           </div>
